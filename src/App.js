@@ -1,98 +1,119 @@
 import React from 'react';
 
 function App(props) {
-  const data = [
-    {
-      id: 101,
-      name: 'Abacavir',
-      quantity: 25,
-      price: 150,
-      expiry: 2022,
-      status: true 
-    },
-    {
-      id: 102,
-      name: 'Eltrombopag',
-      quantity: 90,
-      price: 550,
-      expiry: 2021,
-      status: true 
-    },
-    {
-      id: 103,
-      name: 'Meloxicam',
-      quantity: 85,
-      price: 450,
-      expiry: 2025,
-      status: false 
-    },
-    {
-      id: 104,
-      name: 'Allopurinol',
-      quantity: 50,
-      price: 600,
-      expiry: 2023,
-      status: true 
-    },
-    {
-      id: 105,
-      name: 'Phenytoin',
-      quantity: 63,
-      price: 250,
-      expiry: 2021,
-      status: false 
-    }
-  ];
+  
+const emp =[
+  {
+    name: 'amit',
+    age: 35,
+    salary: 40000,
+    bonus:1000,
+    status: true
+  },
+  {
+    name: 'ajay',
+    age: 25,
+    salary: 38000,
+    bonus: 2000,
+    status: false
+  },
+  {
+    name: 'mayur',
+    age: 23,
+    salary: 50000,
+    bonus: 500,
+    status: true
+  },
+  {
+    name: 'jay',
+    age: 29,
+    salary: 35000,
+    bonus: 600,
+    status: true
+  },
+  {
+    name: 'raj',
+    age: 33,
+    salary: 22000,
+    bonus: 2000,
+    status: true
+  }
+];
 
-    // destructure
+// destructure
 
-    let[id1]=data;
-    console.log(id1);
+let[name]=emp;
+console.log(name);
+
+console.log(emp.map((i) => {return i})); 
 
 
-    console.log(data.map((i) => {return i})); 
+let em = emp.filter((e) => {return e.status >= true});
+console.log(em);
 
-    let med = data.filter((f) => {return f.expiry >= 2022});
-    console.log(med);
+let emans = em.reduce((acc, emp, i) => acc + emp.bonus + emp.salary, 0);
+console.log(emans);
 
-    let ans = med.reduce((acc, d, i) => acc + d.price, 0);
-    console.log(ans);
-
-    let ans1 = data.reduce((acc, d, i) => acc + d.price, 0);
-    console.log(ans1);
-
-
+let eman = emp.reduce((acc, emp, i) => acc + emp.bonus + emp.salary, 0);
+console.log(eman);
+     
     return (
-      <>
-         <h4>Medicine Data</h4>
-    <table border = "1">
-      <tr>
-        <th>ID</th>
+    <>
+        <h4>Employee Data</h4>
+      <table border = "1">
+        <tr>
         <th>Name</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Expiry</th>
-        <th>Total-Price</th>
-      </tr>
-      <tbody>
-        {
-          data.map((data,index) => {
-            return(
-              <tr>
-                <td>{data.id}</td>
-                <td>{data.name}</td>
-                <td>{data.quantity}</td>
-                <td>{data.price}</td>
-                <td>{data.expiry}</td>
-                {index === 0 ? <td rowspan = {data.length = "5"} > {ans1} </td> : null}  
-              </tr>
-            )
-          })
-        }
-      </tbody>
-    </table>
-      </>
-    );
-}
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Bonus</th>
+        <th>Total</th>
+        </tr>
+        <tbody>
+          {
+            emp.map((emp,index) => {
+              return(
+                <tr>
+                  <td>{emp.name}</td>
+                  <td>{emp.age}</td>
+                  <td>{emp.salary}</td>
+                  <td>{emp.bonus}</td>
+                  {index === 0 ? <td rowspan = {emp.length = "5"} > {eman} </td> : null} 
+                </tr>
+              )
+            })
+          }
+        </tbody>
+      </table>
 
+    <br></br>
+        <h4>Employee Data-1</h4>
+    <table border = "1">
+        <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Bonus</th>
+        <th>Total</th>
+        </tr>
+        <tbody>
+          {
+            em.map((emp,index) => {
+              return(
+                <tr>
+                  <td>{emp.name}</td>
+                  <td>{emp.age}</td>
+                  <td>{emp.salary}</td>
+                  <td>{emp.bonus}</td>
+                  {index === 0 ? <td rowspan = {emp.length = "5"} > {emans} </td> : null} 
+                </tr>
+              )
+            })
+          }
+        </tbody>
+      </table>
+    </>
+  );
+};
+       
+  
 export default App;
