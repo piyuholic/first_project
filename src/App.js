@@ -1,65 +1,67 @@
 import React from 'react';
+import Counter from './Container/Counter/Counter';
 
 function App(props) {
   
-const emp =[
-  {
-    name: 'amit',
-    age: 35,
-    salary: 40000,
-    bonus:1000,
-    status: true
-  },
-  {
-    name: 'ajay',
-    age: 25,
-    salary: 38000,
-    bonus: 2000,
-    status: false
-  },
-  {
-    name: 'mayur',
-    age: 23,
-    salary: 50000,
-    bonus: 500,
-    status: true
-  },
-  {
-    name: 'jay',
-    age: 29,
-    salary: 35000,
-    bonus: 600,
-    status: true
-  },
-  {
-    name: 'raj',
-    age: 33,
-    salary: 22000,
-    bonus: 2000,
-    status: true
-  }
-];
+// const emp =[
+//   {
+//     name: 'amit',
+//     age: 35,
+//     salary: 40000,
+//     bonus:1000,
+//     status: true
+//   },
+//   {
+//     name: 'ajay',
+//     age: 25,
+//     salary: 38000,
+//     bonus: 2000,
+//     status: false
+//   },
+//   {
+//     name: 'mayur',
+//     age: 23,
+//     salary: 50000,
+//     bonus: 500,
+//     status: true
+//   },
+//   {
+//     name: 'jay',
+//     age: 29,
+//     salary: 35000,
+//     bonus: 600,
+//     status: true
+//   },
+//   {
+//     name: 'raj',
+//     age: 33,
+//     salary: 22000,
+//     bonus: 2000,
+//     status: true
+//   }
+// ];
 
-// destructure
+// // destructure
 
-let[name]=emp;
-console.log(name);
+// let[name]=emp;
+// console.log(name);
 
-console.log(emp.map((i) => {return i})); 
+// console.log(emp.map((i) => {return i})); 
 
 
-let em = emp.filter((e) => {return e.status >= true});
-console.log(em);
+// let em = emp.filter((e) => {return e.status >= true});
+// console.log(em);
 
-let emans = em.reduce((acc, emp, i) => acc + emp.bonus + emp.salary, 0);
-console.log(emans);
+// let emans = em.reduce((acc, emp, i) => acc + emp.bonus + emp.salary, 0);
+// console.log(emans);
 
-let eman = emp.reduce((acc, emp, i) => acc + emp.bonus + emp.salary, 0);
-console.log(eman);
+// let eman = emp.reduce((acc, emp, i) => acc + emp.bonus + emp.salary, 0);
+// console.log(eman);
      
     return (
     <>
-        <h4>Employee Data</h4>
+      <Counter />
+        {/* <h4>Employee Data</h4>
       <table border = "1">
         <tr>
         <th>Name</th>
@@ -110,7 +112,7 @@ console.log(eman);
             })
           }
         </tbody>
-      </table>
+      </table> */}
     </>
   );
 };
